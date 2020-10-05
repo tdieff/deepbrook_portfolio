@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Deepbrook Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="right">
+        <p>Logged in as <span style="color: #7efcd6">{{ username }}</span></p>
+    </div>
+    <h5 style="color: white">Deepbrook Portfolio:&nbsp; Portfolio</h5>
+    <div class="table-responsive">
+        <table class="table" id="portfolio">
+            <tr>
+                <th><span style="color: #7efcd6">Stock</span></th>
+                <th><span style="color: #7efcd6">Shares Owned</span></th>
+                <th><span style="color: #7efcd6">Current Price</span></th>
+                <th><span style="color: #7efcd6">POSITION VALUE</span></th>
+            </tr>
+        </table>
+        <table id="portfolio" style="width: 50%; margin-right: 0px; margin-left: auto">
+            <tr>
+                <th><span style="color: #7efcd6">PORTFOLIO VALUE:</span></th>
+                <th>&nbsp;{{ portfolio_value }}</th>
+            </tr>
+            <tr>
+                <th><span style="color: #7efcd6">CASH BALANCE:</span></th>
+                <th>&nbsp;{{ cash }}</th>
+            </tr>
+            <tr>
+                <th><span style="color: #7efcd6">TOTAL ASSETS:</span></th>
+                <th>&nbsp;{{ total_assets }}</th>
+            </tr>
+        </table>
+    </div>
+{% endblock %}
+
