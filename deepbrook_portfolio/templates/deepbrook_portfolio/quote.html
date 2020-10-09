@@ -1,0 +1,19 @@
+{% extends "deepbrook_portfolio/layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <div class="right">
+        <p>Logged in as <span style="color: #7efcd6">{{ username }}</span></p>
+    </div>
+    <h5 style="color: white">Quote</h5>
+    <form action="/quote" method="post">
+        <div class="form-group">
+            <input class="form-control" name="symbol" placeholder="enter ticker symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Quote</button>
+    </form>
+{% endblock %}
+

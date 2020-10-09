@@ -1,0 +1,24 @@
+{% extends "deepbrook_portfolio/layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="right">
+        <p>Logged in as <span style="color: #7efcd6">{{ username }}</span></p>
+    </div>
+    <h5 style="color: white">History</h5>
+    <div class="table-responsive">
+        <table class="table" id="portfolio">
+            <tr>
+                <th><span style="color: #7efcd6">Stock</span></th>
+                <th><span style="color: #7efcd6">Order Type</span></th>
+                <th><span style="color: #7efcd6">Shares Traded</span></th>
+                <th><span style="color: #7efcd6">Trade Price</span></th>
+                <th><span style="color: #7efcd6">Timestamp (UTC)</span></th>
+            </tr>
+        </table>
+    </div>
+{% endblock %}
+

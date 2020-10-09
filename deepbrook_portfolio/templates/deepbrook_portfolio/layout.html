@@ -20,7 +20,7 @@
     </head>
     <body style="background-color:#333d52;">
         <nav class="navbar navbar-expand-md navbar-light bg-light border">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="{% url 'deepbrook_portfolio:index' %}">
 				<span class="blue">Deepbrook Portfolio</span>
 			</a>
             <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
@@ -29,24 +29,24 @@
             <div class="collapse navbar-collapse" id="navbar">
 				<ul class="navbar-nav mr-auto mt-2">
 					<li class="nav-item">
-						<a class="nav-link" href="/">Portfolio</a>
+						<a class="nav-link" href="{% url 'deepbrook_portfolio:portfolio' %}">Portfolio</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/quote">Quote</a>
+						<a class="nav-link" href="{% url 'deepbrook_portfolio:quote' %}">Quote</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/buy">Buy</a>
+						<a class="nav-link" href="{% url 'deepbrook_portfolio:buy' %}">Buy</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/sell">Sell</a>
+						<a class="nav-link" href="{% url 'deepbrook_portfolio:sell' %}">Sell</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/history">History</a>
+						<a class="nav-link" href="{% url 'deepbrook_portfolio:history' %}">History</a>
 					</li>
 				</ul>
 				<ul class="navbar-nav ml-auto mt-2">
 					<li class="nav-item">
-						<a class="nav-link" href="/logout">Log Out</a>
+						<a class="nav-link" href="{% url 'deepbrook_portfolio:login' %}">Log Out</a>
 					</li>
 				</ul>
             </div>

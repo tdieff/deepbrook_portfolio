@@ -1,0 +1,22 @@
+{% extends "deepbrook_portfolio/layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <div class="right">
+        <p>Logged in as <span style="color: #7efcd6">{{ username }}</span></p>
+    </div>
+    <h5 style="color: white">Sell</h5>
+    <form action="/sell" method="post">
+        <div class="form-group">
+            <input class="form-control" name="symbol" placeholder="ticker symbol" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="shares" placeholder="how many shares?" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Place Order</button>
+    </form>
+{% endblock %}
+
