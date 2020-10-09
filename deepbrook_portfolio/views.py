@@ -1,12 +1,28 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django import forms
+from deepbrook_portfolio.forms import LoginForm
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 def index(request):
-    return render(request, "deepbrook_portfolio/index.html")
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("login"))
+    return render(request, "deepbrook_portfolio/index.html", {
+        "username":"username"
+    })
 
 def login(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        # user = authenticate(request, username=username, password=password)
+        # if user:
+            # login(request, user)
+            # return HttpResponseRedirect((reverse("index"))
+        # else:
+            # return render(request, "deepbrook_portfolio/login.html", {
+                # "message":"Invalid login credentials"
+            # })
     return render(request, "deepbrook_portfolio/login.html")
 
 def register(request):
@@ -48,3 +64,4 @@ def history(request):
     return render(request, "deepbrook_portfolio/history.html", {
         "username": some_username,
     })
+
