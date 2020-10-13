@@ -6,7 +6,7 @@
 
 {% block main %}
     <div class="right">
-        <p>Logged in as <span style="color: #7efcd6">{{ username }}</span></p>
+        <p>Logged in as <span style="color: #7efcd6">{{ request.user.username }}</span></p>
     </div>
     <h5 style="color: white">History</h5>
     <div class="table-responsive">
