@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <p style="color: #7efcd6">Log In</p>
+<p>{{ message }}</p>
 	<form action="{% url 'deepbrook_portfolio:login' %}" method="post">
 		{% csrf_token %}
         <div class="form-group">

@@ -5,14 +5,13 @@
 {% endblock %}
 
 {% block main %}
-    <h4 style="color: white">New Account</h4>
-
-	<form action="{% url 'deepbrook_portfolio:login' %}" method="post">
+    <h4>New Account</h4>
+	<p> {{ message }} </p>
+	<form action="{% url 'deepbrook_portfolio:register' %}" method="post">
 		{% csrf_token %}
         <div class="form-group">
             <input autocomplete="off" autofocus class="form-control" name="username" placeholder="declare username" type="text">
         </div>
-        <p style="color: white; font-size: x-small">(Password must contain: at least 8 characters, at least 1 number, and at least 1 symbol)</p>
         <div class="form-group">
             <input class="form-control" name="password" placeholder="declare password" type="password">
         </div>

@@ -5,8 +5,21 @@
 {% endblock %}
 
 {% block main %}
-<p style="color: #7efcd6">
-	Hello {{ request.user.username }}, welcome to Deepbrook Portfolio
-</p>
+	{% if user.is_authenticated %}
+		<p>
+			Hello {{ request.user.username }}, welcome to Deepbrook Portfolio
+		</p>
+	{% else %}
+		<h5>Welcome to Deepbrook Portfolio</h5>
+		<p>
+			Simulate buying and selling stocks at real-time prices. Experiment with portfolio management.
+		</p>
+		<p>
+			<a href="{% url 'deepbrook_portfolio:login' %}">Log In</a>
+		</p>
+		<p>
+			Don't have an account? <a href="{% url 'deepbrook_portfolio:register' %}">Register</a>
+		</p>
+	{% endif %}
 {% endblock %}
 

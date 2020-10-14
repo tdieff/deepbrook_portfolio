@@ -1,24 +1,26 @@
-<!DOCTYPE html>
+{% load static %}
 
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, 
-									   initial-scale=1, 
-									   shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 		<!-- documentation at http://getbootstrap.com/docs/4.1/ -->
 		<!-- alternative themes at https://bootswatch.com/ -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+		
 		<!-- django-specific syntax link to stylesheet -->
-		{% load static %}
 		<link rel="stylesheet" href="{% static 'deepbrook_portfolio/styles.css' %}">
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
         <title>Deepbrook Portfolio: {% block title %}{% endblock %}</title>
     </head>
-    <body style="background-color:#333d52;">
+    <body>
         <nav class="navbar navbar-expand-md navbar-light bg-light border">
             <a class="navbar-brand" href="{% url 'deepbrook_portfolio:index' %}">
 				<span class="blue">Deepbrook Portfolio</span>
@@ -28,32 +30,50 @@
             </button>
             <div class="collapse navbar-collapse" id="navbar">
 				<ul class="navbar-nav mr-auto mt-2">
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'deepbrook_portfolio:portfolio' %}">Portfolio</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'deepbrook_portfolio:quote' %}">Quote</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'deepbrook_portfolio:buy' %}">Buy</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'deepbrook_portfolio:sell' %}">Sell</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'deepbrook_portfolio:history' %}">History</a>
-					</li>
-				</ul>
-				<ul class="navbar-nav ml-auto mt-2">
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'deepbrook_portfolio:login' %}">Log Out</a>
-					</li>
+					{% if user.is_authenticated %}
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'deepbrook_portfolio:portfolio' %}">Portfolio</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'deepbrook_portfolio:quote' %}">Quote</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'deepbrook_portfolio:buy' %}">Buy</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'deepbrook_portfolio:sell' %}">Sell</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'deepbrook_portfolio:history' %}">History</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'deepbrook_portfolio:logout' %}">Log Out</a>
+						</li>
+					{% else %}
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'deepbrook_portfolio:about' %}">About</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'deepbrook_portfolio:login' %}">Login</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'deepbrook_portfolio:register' %}">Register</a>
+						</li>
+					{% endif %}
 				</ul>
             </div>
         </nav>
 
         <main class="container p-5">
-            {% block main %}{% endblock %}
+            {% block main %}
+			{% endblock %}
         </main>
 
         <footer class="small text-center text-muted">
