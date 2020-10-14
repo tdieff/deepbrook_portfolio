@@ -1,0 +1,15 @@
+{% extends "deepbrook_portfolio/layout.html" %}
+
+{% block title %}
+    Deepbrook Portfolio
+{% endblock %}
+
+{% block main %}
+	<h5>Deepbrook Portfolio</h5>
+	<p>
+		You have been logged out successfuly.
+	</p>
+	<p>
+		<a href="{% url 'deepbrook_portfolio:login' %}">Log In</a>
+	</p>
+{% endblock %}
