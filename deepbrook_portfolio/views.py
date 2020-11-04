@@ -64,7 +64,23 @@ def portfolio(request):
 
 @login_required
 def quote(request):
-    return render(request, "deepbrook_portfolio/quote.html")
+    if request.method == "POST":
+        ticker = request.POST["ticker"]
+        return display_quote(request, ticker)
+    else:
+        return render(request, "deepbrook_portfolio/quote.html")
+
+@login_required
+def display_quote(request, ticker):
+    base = "https://cloud.iexapis.com/"
+    version = "stable/"
+    endpoint = "stock/{ticker}/quote?".format(ticker=ticker)
+    token = "token=pk_fdde9d37aef44d21a32ae6d070a3ac5d"
+    quote_url = "{base}{version}{endpoint}{token}".format(base=base, version=version, endpoint=endpoint, token=token)
+    return render(request, "deepbrook_portfolio/display_quote.html", {
+        "ticker":ticker.upper(),
+        "quote_url": quote_url
+    })
 
 @login_required
 def buy(request):
