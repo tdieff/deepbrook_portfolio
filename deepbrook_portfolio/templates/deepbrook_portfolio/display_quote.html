@@ -1,0 +1,33 @@
+{% extends "deepbrook_portfolio/layout.html" %}
+
+{% block title %}
+    Display Quote
+{% endblock %}
+
+{% block main %}
+    <div class="right">
+        <p>Logged in as <span>{{ request.user.username }}</span></p>
+    </div>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+    // Send a GET request to the URL
+    fetch('{{ quote_url }}')
+    // Put response into json form
+    .then(response => response.json())
+    .then(data => {
+
+        // Get rate from data
+        const price = data.latestPrice;
+
+        // Display message on the screen
+        document.querySelector('h4').innerHTML = `$${price}`;
+    });
+});
+	</script>
+	<body>
+	<h5>Your {{ ticker }} quote, as requested:</h5>
+	<h4></h4>
+	</body>
+{% endblock %} 
+
+
